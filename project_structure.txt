@@ -1,0 +1,302 @@
+.
+├── bazel_common
+│   ├── BUILD
+│   ├── bundlers.bzl
+│   ├── score_basic_bazel.MODULE.bazel
+│   ├── score_gcc_toolchains.MODULE.bazel
+│   ├── score_images.MODULE.bazel
+│   ├── score_modules_target_sw.MODULE.bazel
+│   ├── score_modules_tooling.MODULE.bazel
+│   ├── score_python.MODULE.bazel
+│   ├── score_qnx_toolchains.MODULE.bazel
+│   └── score_rust_toolchains.MODULE.bazel
+├── BUILD
+├── ci
+│   └── showcase_targets_run.txt
+├── docs
+│   ├── _assets
+│   │   ├── custom.css
+│   │   ├── pa2_impl_progress.svg
+│   │   ├── pa3_arch_progress.svg
+│   │   ├── pa4_impl_progress.svg
+│   │   ├── pa5_verification_progress.svg
+│   │   ├── pi_timeline_2026.drawio.svg
+│   │   └── sw_arch_v_1.drawio.svg
+│   ├── conf.py
+│   ├── index.rst
+│   ├── integration_process
+│   │   └── integration_process.rst
+│   ├── needs_filters.py
+│   ├── process_methods_tools.rst
+│   ├── s_core_v_1
+│   │   ├── index.rst
+│   │   ├── releases
+│   │   │   ├── _assets
+│   │   │   │   ├── architecture_0_6.drawio.svg
+│   │   │   │   ├── architecture.drawio.svg
+│   │   │   │   └── score_process_area_overview.drawio.svg
+│   │   │   ├── release_note_score_v0_5_alpha.rst
+│   │   │   ├── release_note_score_v0_5_beta.rst
+│   │   │   ├── release_note_score_v0_6.rst
+│   │   │   ├── release_note_score_v0_7.rst
+│   │   │   └── releases.rst
+│   │   └── roadmap
+│   │       ├── overall_status.rst
+│   │       ├── pi1.rst
+│   │       ├── pi2.rst
+│   │       ├── pi3.rst
+│   │       ├── pi4.rst
+│   │       ├── planning_approach.rst
+│   │       └── roadmap.rst
+│   ├── sw_components.rst
+│   └── verification_report
+│       ├── coverage_summary.md
+│       ├── platform_verification_report.rst
+│       └── unit_test_summary.md
+├── feature_integration_tests
+│   ├── BUILD
+│   ├── configs
+│   │   ├── BUILD
+│   │   ├── datarouter
+│   │   │   ├── BUILD
+│   │   │   └── etc
+│   │   │       ├── log-channels.json
+│   │   │       └── logging.json
+│   │   ├── dlt_config_qnx_x86_64.json
+│   │   ├── dlt_config_x86_64.json
+│   │   ├── etc
+│   │   │   ├── logging.json
+│   │   │   └── mw_com_config.json
+│   │   └── qemu_bridge_config.json
+│   ├── itf
+│   │   ├── BUILD
+│   │   ├── test_remote_logging.py
+│   │   ├── test_showcases.py
+│   │   └── test_ssh.py
+│   ├── README.md
+│   ├── test_cases
+│   │   ├── BUILD
+│   │   ├── conftest.py
+│   │   ├── fit_scenario.py
+│   │   ├── persistency_scenario.py
+│   │   ├── requirements.txt
+│   │   ├── requirements.txt.lock
+│   │   ├── test_properties.py
+│   │   └── tests
+│   │       ├── basic
+│   │       │   └── test_orchestration_with_persistency.py
+│   │       └── persistency
+│   │           ├── test_combined_requirements.py
+│   │           ├── test_datatype_support.py
+│   │           ├── test_default_values.py
+│   │           ├── test_multiple_kvs_per_app.py
+│   │           └── test_reset_to_default.py
+│   └── test_scenarios
+│       ├── cpp
+│       │   ├── BUILD
+│       │   └── src
+│       │       ├── internals
+│       │       │   └── persistency
+│       │       │       ├── kvs_build_helpers.h
+│       │       │       ├── kvs_instance.cpp
+│       │       │       ├── kvs_instance.h
+│       │       │       ├── kvs_parameters.cpp
+│       │       │       └── kvs_parameters.h
+│       │       ├── main.cpp
+│       │       └── scenarios
+│       │           ├── mod.cpp
+│       │           └── persistency
+│       │               ├── default_values.cpp
+│       │               ├── default_values_ignored.cpp
+│       │               ├── multi_instance_isolation.cpp
+│       │               ├── multiple_kvs_per_app.cpp
+│       │               ├── reset_to_default.cpp
+│       │               ├── supported_datatypes.cpp
+│       │               └── utf8_defaults.cpp
+│       └── rust
+│           ├── BUILD
+│           └── src
+│               ├── internals
+│               │   ├── kyron
+│               │   │   ├── mod.rs
+│               │   │   └── runtime_helper.rs
+│               │   ├── mod.rs
+│               │   └── persistency
+│               │       ├── kvs_instance.rs
+│               │       ├── kvs_parameters.rs
+│               │       └── mod.rs
+│               ├── main.rs
+│               └── scenarios
+│                   ├── basic
+│                   │   ├── mod.rs
+│                   │   └── orchestration_with_persistency.rs
+│                   ├── mod.rs
+│                   └── persistency
+│                       ├── default_values_ignored.rs
+│                       ├── default_values.rs
+│                       ├── mod.rs
+│                       ├── multi_instance_isolation.rs
+│                       ├── multiple_kvs_per_app.rs
+│                       ├── reset_to_default.rs
+│                       ├── supported_datatypes.rs
+│                       └── utf8_defaults.rs
+├── images
+│   ├── autosd
+│   │   ├── BUILD.bazel
+│   │   └── scripts
+│   │       └── run_qemu
+│   ├── ebclfsa_aarch64
+│   │   ├── build
+│   │   │   ├── BUILD
+│   │   │   ├── build_image.sh
+│   │   │   └── config-overlay
+│   │   │       ├── BUILD
+│   │   │       ├── etc
+│   │   │       │   └── crinit
+│   │   │       │       └── crinit.d
+│   │   │       │           └── getty-console.crinit
+│   │   │       └── usr
+│   │   │           └── bin
+│   │   │               └── delayed-start.sh
+│   │   ├── BUILD
+│   │   ├── docs
+│   │   │   └── system_setup.drawio.png
+│   │   └── README.md
+│   ├── linux_x86_64
+│   │   └── BUILD
+│   └── qnx_x86_64
+│       ├── build
+│       │   ├── BUILD
+│       │   ├── init.build
+│       │   └── system.build
+│       ├── BUILD
+│       └── configs
+│           ├── BUILD
+│           ├── dhcpcd.conf
+│           ├── group
+│           ├── hostname
+│           ├── network_capture.sh
+│           ├── network_setup_dhcp.sh
+│           ├── network_setup.sh
+│           ├── passwd
+│           ├── pci_hw.cfg
+│           ├── pci_server.cfg
+│           ├── profile
+│           ├── qcrypto.conf
+│           ├── sshd_config
+│           ├── ssh_host_rsa_key
+│           ├── ssh_host_rsa_key.pub
+│           └── startup.sh
+├── known_good.json
+├── LICENSE
+├── MODULE.bazel
+├── MODULE.bazel.lock
+├── NOTICE
+├── patches
+│   └── communication
+│       ├── 001-expose-comm-examples.patch
+│       ├── 002-tests-visibility.patch
+│       ├── 003-module-deps-visibility.patch
+│       └── BUILD
+├── platform_integration_tests
+├── project_structure.txt
+├── pyproject.toml
+├── README.md
+├── runners
+│   ├── docker_x86_64
+│   │   ├── BUILD
+│   │   └── scripts
+│   │       ├── BUILD
+│   │       └── run_docker.sh
+│   ├── qemu_aarch64
+│   │   ├── BUILD
+│   │   └── scripts
+│   │       ├── BUILD
+│   │       └── run_qemu.sh
+│   └── qemu_x86_64
+│       ├── BUILD
+│       ├── README.md
+│       └── scripts
+│           ├── BUILD
+│           ├── qnx_wireshark.sh
+│           ├── run_qemu_portforward.sh
+│           └── run_qemu.sh
+├── rust_coverage
+│   └── BUILD
+├── score_starter
+├── scripts
+│   ├── generate_rust_analyzer_support.sh
+│   ├── __init__.py
+│   ├── integration_test.py
+│   ├── known_good
+│   │   ├── __init__.py
+│   │   ├── known_good_to_workspace_metadata.py
+│   │   ├── models
+│   │   │   ├── __init__.py
+│   │   │   ├── known_good.py
+│   │   │   └── module.py
+│   │   ├── override_known_good_repo.py
+│   │   ├── update_module_from_known_good.py
+│   │   └── update_module_latest.py
+│   ├── models
+│   │   ├── build_config.py
+│   │   └── __init__.py
+│   ├── publish_integration_summary.py
+│   ├── quality_runners.py
+│   └── tooling
+│       ├── BUILD
+│       ├── cli
+│       │   ├── __init__.py
+│       │   ├── main.py
+│       │   ├── misc
+│       │   │   ├── assets
+│       │   │   │   └── report_template.html
+│       │   │   ├── html_report.py
+│       │   │   └── __init__.py
+│       │   ├── release
+│       │   │   ├── check_approvals.py
+│       │   │   └── __init__.py
+│       │   └── workflow
+│       │       ├── checkout_repos.py
+│       │       ├── __init__.py
+│       │       └── recategorize_guidelines.py
+│       ├── lib
+│       │   ├── github.py
+│       │   ├── git_operations.py
+│       │   ├── __init__.py
+│       │   └── known_good
+│       │       ├── __init__.py
+│       │       ├── known_good.py
+│       │       └── module.py
+│       ├── README.md
+│       ├── requirements.in
+│       ├── requirements.txt
+│       └── tests
+│           ├── conftest.py
+│           ├── __init__.py
+│           ├── test_check_approvals.py
+│           ├── test_known_good.py
+│           └── test_report.py
+└── showcases
+    ├── BUILD
+    ├── cli
+    │   ├── BUILD
+    │   ├── main.rs
+    │   └── README.md
+    ├── orchestration_persistency
+    │   ├── BUILD
+    │   ├── main.rs
+    │   └── orch_per.score.json
+    ├── simple_lifecycle
+    │   ├── BUILD
+    │   ├── configs
+    │   │   ├── BUILD
+    │   │   └── launch_manager_config.json
+    │   ├── lifecycle_signal.sh
+    │   └── simple_lifecycle.score.json
+    └── standalone
+        ├── BUILD
+        ├── com.score.json
+        └── kyron.score.json
+
+81 directories, 218 files
